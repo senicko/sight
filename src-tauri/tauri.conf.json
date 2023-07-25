@@ -27,7 +27,7 @@
         "depends": []
       },
       "externalBin": [],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.github.senicko",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

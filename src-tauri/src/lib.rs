@@ -70,22 +70,6 @@ fn start_break_flow(app: &mut App) -> Result<(), Box<dyn std::error::Error>> {
 
     tauri::async_runtime::spawn(async move {
         loop {
-            tray_handle.set_title("break").unwrap();
-
-            let sender = Arc::clone(&sender);
-            let break_window = build_break_window(&app_handle);
-
-            break_window.on_window_event(move |event| match event {
-                tauri::WindowEvent::Destroyed => {
-                    tauri::async_runtime::block_on(async {
-                        let _ = sender.send(()).await;
-                    });
-                }
-                _ => {}
-            });
-
-            let _ = rx.recv().await.unwrap();
-
             let mut work_time = 60 * 50;
 
             for _ in 0..work_time {
@@ -102,6 +86,22 @@ fn start_break_flow(app: &mut App) -> Result<(), Box<dyn std::error::Error>> {
 
                 tokio::time::sleep(tokio::time::Duration::from_secs(1)).await;
             }
+
+            tray_handle.set_title("break").unwrap();
+
+            let sender = Arc::clone(&sender);
+            let break_window = build_break_window(&app_handle);
+
+            break_window.on_window_event(move |event| match event {
+                tauri::WindowEvent::Destroyed => {
+                    tauri::async_runtime::block_on(async {
+                        let _ = sender.send(()).await;
+                    });
+                }
+                _ => {}
+            });
+
+            let _ = rx.recv().await.unwrap();
         }
     });
 
