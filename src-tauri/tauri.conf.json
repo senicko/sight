@@ -7,7 +7,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "sight",
+    "productName": "Sight",
     "version": "0.1.0"
   },
   "tauri": {
@@ -43,7 +43,8 @@
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": ""
-      }
+      },
+      "icon": ["icons/Sight.icns"]
     },
     "security": {
       "csp": null
