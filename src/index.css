@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Zed Mono Extended";
+  src: url("./fonts/zed-mono-extended.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Zed Mono Extended";
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  font-size: 32px;
+}
+
+.time {
+  font-size: 64px;
+}
+
+.postpone_button {
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: #000;
+  color: white;
+  padding: 8px;
+  border: 1px solid #444;
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 0.2s;
+}
+
+.fade-out {
+  animation-name: fade-out;
+  animation-duration: 0.2s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
